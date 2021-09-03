@@ -1,8 +1,9 @@
 body {
-    color: aliceblue;
+    color: antiquewhite;
+    font-family: Optima, serif;
     font-size: 22px;
     min-width: 50%;
-    background-image: url("resources/mp4.mp4");
+    background-image: url("resources/background.jpg");
     background-size: cover;
     padding: 0;
     margin: 0;
@@ -18,10 +19,9 @@ header {
     line-height: 125%;
     font-size: 45px;
     text-align: center;
-    text-shadow: -1px -3px 3px #6feeca;
 }
 
-.border {
+.box {
     border-radius: 10px;
     border: 5px solid #6feeca;
     background-color: rgba(5, 5, 5, 0.3);
@@ -57,7 +57,7 @@ header {
 
 .xLocator {
     grid-column: 1;
-    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(120px, auto);
     grid-gap: 1em;
 }
 
@@ -69,6 +69,7 @@ header {
 
 .rLocator {
     grid-column: 3;
+    grid-auto-rows: minmax(120px, auto);
     grid-gap: 1em;
 }
 
@@ -96,6 +97,7 @@ header {
 }
 
 #formSubmit {
+    font-family: Optima, serif;
     font-size: 22px;
     width: 100%;
     height: 70px;
