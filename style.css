@@ -1,0 +1,107 @@
+body {
+    color: aliceblue;
+    font-size: 22px;
+    min-width: 50%;
+    background-image: url("pepega.jpg");
+    background-size: cover;
+}
+
+header {
+    font-family: Optima, serif;
+    color: lightcoral;
+    line-height: 125%;
+    font-size: 45px;
+    text-align: center;
+    text-shadow: -1px -3px 3px #6feeca;
+}
+
+.border {
+    border-radius: 30px;
+    background-color: rgba(5, 5, 5, 0.3);
+    text-align: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 1em;
+}
+
+.wrapper > div {
+    padding: 1em;
+}
+
+#header {
+    grid-column: 1/4;
+}
+
+#checkForm {
+    grid-column: 2;
+}
+
+.diagram {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    grid-column: 3;
+    border: 10px solid rgba(5, 5, 5, 0.3);
+    border-radius: 50px;
+}
+
+
+#checkForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(10px, auto);
+    grid-gap: 1em;
+}
+
+#checkForm > div {
+    padding: 1em;
+}
+
+#xrChooser {
+    display: grid;
+    grid-column: 1;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 1em;
+}
+
+#ysChooser {
+    display: grid;
+    grid-column: 2;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 1em;
+}
+
+#xrChooser > div {
+    padding: 1em;
+}
+
+#ysChooser > div {
+    padding: 1em;
+}
+
+#area_r, #area_x {
+    height: 120px;
+}
+
+#area_submit, #area_y {
+    justify-self: center;
+    height: 120px;
+}
+
+#area_submit {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#formSubmit {
+    font-size: 22px;
+    width: 120px;
+    height: 70px;
+    background: rgba(5, 5, 5, 0.3);
+    border-radius: 30px;
+    color: #6feeca;
+}

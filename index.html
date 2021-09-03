@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lab 1</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="author" content="petuch03"/>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+    <!--<script src="jquery-3.5.1.min.js"></script>-->
+    <script src="back.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <div id="header">
+        <header>
+            Safronov Egor Mikhailovich P3213 308496
+        </header>
+    </div>
+
+    <form method="get" action="" id="checkForm">
+
+        <div class="xrChooser">
+            <div id="area_x" class="border">
+                <p>X: </p>
+                <input name="xValue" type="button" value="-5">
+                <input name="xValue" type="button" value="-4">
+                <input name="xValue" type="button" value='-3'>
+                <input name="xValue" type="button" value="-2">
+                <input name="xValue" type="button" value="-1">
+                <br><input name="xValue" type="button" value="0">
+                <input name="xValue" type="button" value="1">
+                <input name="xValue" type="button" value="2">
+                <input name="xValue" type="button" value="3">
+            </div>
+
+            <div id="area_r" class="border">
+                <p>R: </p>
+                <select name="rValue">
+                    <option value="1">1</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="ysChooser">
+
+            <div id="area_y" class="border">
+                <p><label for="yValue">Y: </label></p>
+                <input type="text" id="yValue" name="coordinateX" maxlength="5" placeholder="От -3 по 5">
+            </div>
+
+            <div id="area_submit">
+                <p><input type="submit" id="formSubmit" value="Check"></p>
+            </div>
+        </div>
+
+    </form>
+
+    <div id="diagram">
+        <img src="pic.png" alt="Координатная плоскость" class="diagram">
+    </div>
+
+</div>
+</body>
+</html>
