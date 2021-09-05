@@ -7,7 +7,7 @@
     <script src="scripts/checkboxes.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="author" content="petuch03"/>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -24,7 +24,8 @@
         <div class="xLocator">
             <div id="area_x" class="box">
                 <p1>Choose your X value:</p1>
-                <p><label for="xn5"><input name="xValue" type="checkbox" id="xn5" value="-5" onchange="xn5()"> -5 </label>
+                <p><label for="xn5"><input name="xValue" type="checkbox" id="xn5" value="-5" onchange="xn5()"> -5
+                </label>
                 <p><label for="xn4"><input name="xValue" type="checkbox" id="xn4" value="-4"> -4 </label>
                 <p><label for="xn3"><input name="xValue" type="checkbox" id="xn3" value='-3'> -3 </label>
                 <p><label for="xn2"><input name="xValue" type="checkbox" id="xn2" value="-2"> -2 </label>
@@ -39,7 +40,7 @@
         <div class="yLocator">
             <div id="area_y" class="box">
                 <p><label for="yValue">Input your Y value:</label></p>
-                <input type="text" id="yValue" name="yValue" maxlength="5" placeholder="from -5 to 5">
+                <input type="text" id="yValue" name="yValue" maxlength="9" placeholder="enter here a value from -5 to 5">
             </div>
         </div>
 
@@ -62,7 +63,9 @@
 
     </form>
 
-    <img src="resources/pic.png" alt="Координатная плоскость" class="diagram">
+    <div id="area_diagram">
+        <img src="resources/pic.png" alt="Координатная плоскость" class="diagram">
+    </div>
 </div>
 </body>
 </html>
