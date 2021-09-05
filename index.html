@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>lab 1</title>
+    <script src="scripts/checkboxes.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="author" content="petuch03"/>
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="style.css">
-    <!--<script src="jquery-3.5.1.min.js"></script>-->
-    <script src="scripts/checkboxes.js"></script>
 </head>
 
 <body>
@@ -25,15 +24,15 @@
         <div class="xLocator">
             <div id="area_x" class="box">
                 <p1>Choose your X value:</p1>
-                <p><label for="n5"></label><input name="xValue" type="checkbox" id="n5" value="-5"> -5
-                <p><label for="n4"></label><input name="xValue" type="checkbox" id="n4" value="-4"> -4
-                <p><label for="n3"></label><input name="xValue" type="checkbox" id="n3" value='-3'> -3
-                <p><label for="n2"></label><input name="xValue" type="checkbox" id="n2" value="-2"> -2
-                <p><label for="n1"></label><input name="xValue" type="checkbox" id="n1" value="-1"> -1
-                <p><label for="zero"></label><input name="xValue" type="checkbox" id="zero" value="0"> 0
-                <p><label for="p1"></label><input name="xValue" type="checkbox" id="p1" value="1"> 1
-                <p><label for="p2"></label><input name="xValue" type="checkbox" id="p2" value="2"> 2
-                <p><label for="p3"></label><input name="xValue" type="checkbox" id="p3" value="3"> 3
+                <p><label for="xn5"><input name="xValue" type="checkbox" id="xn5" value="-5" onchange="xn5()"> -5 </label>
+                <p><label for="xn4"><input name="xValue" type="checkbox" id="xn4" value="-4"> -4 </label>
+                <p><label for="xn3"><input name="xValue" type="checkbox" id="xn3" value='-3'> -3 </label>
+                <p><label for="xn2"><input name="xValue" type="checkbox" id="xn2" value="-2"> -2 </label>
+                <p><label for="xn1"><input name="xValue" type="checkbox" id="xn1" value="-1"> -1 </label>
+                <p><label for="xzero"><input name="xValue" type="checkbox" id="xzero" value="0"> 0 </label>
+                <p><label for="xp1"><input name="xValue" type="checkbox" id="xp1" value="1"> 1 </label>
+                <p><label for="xp2"><input name="xValue" type="checkbox" id="xp2" value="2"> 2 </label>
+                <p><label for="xp3"><input name="xValue" type="checkbox" id="xp3" value="3"> 3 </label>
             </div>
         </div>
 
@@ -47,21 +46,11 @@
         <div class="rLocator">
             <div id="area_r" class="box">
                 <p1>Choose your R value:</p1>
-                <p><label>
-                    <input name="rValue" type="checkbox" value="1">
-                </label> 1
-                <p><label>
-                    <input name="rValue" type="checkbox" value="1.5">
-                </label> 1.5
-                <p><label>
-                    <input name="rValue" type="checkbox" value="2">
-                </label> 2
-                <p><label>
-                    <input name="rValue" type="checkbox" value='2.5'>
-                </label> 2.5
-                <p><label>
-                    <input name="rValue" type="checkbox" value="3">
-                </label> 3
+                <p><label><input name="rValue" type="checkbox" id="r1" value="1"> 1 </label>
+                <p><label><input name="rValue" type="checkbox" id="r15" value="1.5"> 1.5 </label>
+                <p><label><input name="rValue" type="checkbox" id="r2" value="2"> 2 </label>
+                <p><label><input name="rValue" type="checkbox" id="r25" value='2.5'> 2.5 </label>
+                <p><label><input name="rValue" type="checkbox" id="r3" value="3"> 3 </label>
             </div>
         </div>
 

@@ -1,3 +1,6 @@
-if($('#n1').prop('checked')) {
-    $('#n2, #n3, #n4, #n5, #zero, #p1, #p2, #p3').prop('checked', false);
+function xn5() {
+    var chbox;
+    chbox=document.getElementById('xn5')
+    if (chbox.checked) { alert('X = -5'); }
+    else {alert('not checked')}
 }

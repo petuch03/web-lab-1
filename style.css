@@ -15,7 +15,7 @@ p {
 
 header {
     font-family: Optima, serif;
-    color: lightcoral;
+    color: #6feeca;
     line-height: 125%;
     font-size: 45px;
     text-align: center;
@@ -93,7 +93,7 @@ header {
 }
 
 #area_submit {
-    margin: 10px;
+    margin: 0.2em;
 }
 
 #formSubmit {
@@ -105,7 +105,6 @@ header {
     border-radius: 10px;
     border: 5px solid #6feeca;
     color: #6feeca;
-    margin: 0.2em;
 }
 
 .diagram {
