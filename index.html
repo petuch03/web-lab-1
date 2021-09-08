@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>lab 1</title>
-    <script src="scripts/checkboxes.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="author" content="petuch03"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,52 +18,84 @@
         </header>
     </div>
 
-    <form method="post" action="" id="checkForm">
-
+    <div id="checkForm">
         <div class="xLocator">
             <div id="area_x" class="box">
                 <p1>Choose your X value:</p1>
-                <p><label for="xn5"><input name="xValue" type="checkbox" id="xn5" value="-5" onchange="xn5()"> -5 </label>
-                <p><label for="xn4"><input name="xValue" type="checkbox" id="xn4" value="-4"> -4 </label>
-                <p><label for="xn3"><input name="xValue" type="checkbox" id="xn3" value='-3'> -3 </label>
-                <p><label for="xn2"><input name="xValue" type="checkbox" id="xn2" value="-2"> -2 </label>
-                <p><label for="xn1"><input name="xValue" type="checkbox" id="xn1" value="-1"> -1 </label>
-                <p><label for="xzero"><input name="xValue" type="checkbox" id="xzero" value="0"> 0 </label>
-                <p><label for="xp1"><input name="xValue" type="checkbox" id="xp1" value="1"> 1 </label>
-                <p><label for="xp2"><input name="xValue" type="checkbox" id="xp2" value="2"> 2 </label>
-                <p><label for="xp3"><input name="xValue" type="checkbox" id="xp3" value="3"> 3 </label>
+                <p><label class="for-xval" for="xn5"><input class="xValue" name="xVal" type="checkbox" id="xn5" value="-5"> -5
+                </label>
+                <p><label class="for-xval" for="xn4"><input class="xValue" name="xVal" type="checkbox" id="xn4" value="-4"> -4
+                </label>
+                <p><label class="for-xval" for="xn3"><input class="xValue" name="xVal" type="checkbox" id="xn3" value='-3'> -3
+                </label>
+                <p><label class="for-xval" for="xn2"><input class="xValue" name="xVal" type="checkbox" id="xn2" value="-2"> -2
+                </label>
+                <p><label class="for-xval" for="xn1"><input class="xValue" name="xVal" type="checkbox" id="xn1" value="-1"> -1
+                </label>
+                <p><label class="for-xval" for="xzero"><input class="xValue" name="xVal" type="checkbox" id="xzero" value="0"> 0
+                </label>
+                <p><label class="for-xval" for="xp1"><input class="xValue" name="xVal" type="checkbox" id="xp1" value="1"> 1
+                </label>
+                <p><label class="for-xval" for="xp2"><input class="xValue" name="xVal" type="checkbox" id="xp2" value="2"> 2
+                </label>
+                <p><label class="for-xval" for="xp3"><input class="xValue" name="xVal" type="checkbox" id="xp3" value="3"> 3
+                </label>
             </div>
         </div>
 
         <div class="yLocator">
             <div id="area_y" class="box">
                 <p><label for="yValue">Input your Y value:</label></p>
-                <input type="text" id="yValue" name="yValue" maxlength="9" placeholder="enter here a value from -5 to 5">
+                <input type="text" id="yValue" name="yVal" maxlength="9" placeholder="from -5 to 5">
             </div>
         </div>
 
         <div class="rLocator">
             <div id="area_r" class="box">
                 <p1>Choose your R value:</p1>
-                <p><label><input name="rValue" type="checkbox" id="r1" value="1"> 1 </label>
-                <p><label><input name="rValue" type="checkbox" id="r15" value="1.5"> 1.5 </label>
-                <p><label><input name="rValue" type="checkbox" id="r2" value="2"> 2 </label>
-                <p><label><input name="rValue" type="checkbox" id="r25" value='2.5'> 2.5 </label>
-                <p><label><input name="rValue" type="checkbox" id="r3" value="3"> 3 </label>
+                <p><label class="for-rval"><input class="rValue" name="rVal" type="checkbox" id="r1" value="1"> 1 </label>
+                <p><label class="for-rval"><input class="rValue" name="rVal" type="checkbox" id="r15" value="1.5"> 1.5 </label>
+                <p><label class="for-rval"><input class="rValue" name="rVal" type="checkbox" id="r2" value="2"> 2 </label>
+                <p><label class="for-rval"><input class="rValue" name="rVal" type="checkbox" id="r25" value='2.5'> 2.5 </label>
+                <p><label class="for-rval"><input class="rValue" name="rVal" type="checkbox" id="r3" value="3"> 3 </label>
             </div>
         </div>
 
         <div class="sLocator">
             <div id="area_submit">
-                <p><input type="submit" id="formSubmit" value="Check"></p>
+                <p><button type="submit" id="formSubmit" onclick="cal()">Check</button></p>
             </div>
         </div>
 
-    </form>
-
+    </div>
     <div id="area_diagram">
         <img src="resources/pic.png" alt="Координатная плоскость" class="diagram">
     </div>
+
+    <div id="tLocator">
+        <div id="scroll">
+            <table id="tableWithResults">
+                <tr>
+                    <th>X</th>
+                    <th>Y</th>
+                    <th>R</th>
+                    <th>res</th>
+                    <th>duration</th>
+                    <th>now</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="scripts/script.js"></script>
 </html>
