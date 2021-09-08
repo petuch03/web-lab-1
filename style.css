@@ -6,6 +6,7 @@ body { /* все что внутри боди -- наследует стиль �
     width: auto;
     background-image: url("resources/background.jpg");
     background-size: cover;
+    background-repeat: repeat-y;
     padding: 0;
     margin: 0 10px 0 0;
 }
