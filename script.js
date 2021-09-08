@@ -66,10 +66,11 @@ function cal() {
             'r': R,
             'timezone': new Date().getTimezoneOffset()
         }).done(function (data) {
-            alert("response got")
+            alert("response got");
             let arr = JSON.parse(data);
             arr.forEach( function (elem) {
-                if (!elem.validate()) return;
+                alert("start  for each");
+                if (!elem.validate) { return; }
                 let newRow = '<tr>';
                 newRow += '<td>' + elem.x + '</td>';
                 newRow += '<td>' + elem.y + '</td>';
@@ -77,8 +78,10 @@ function cal() {
                 newRow += '<td>' + (elem.isHit ? "yes" : "no") + '</td>';
                 newRow += '<td>' + elem.duration + '</td>';
                 newRow += '<td>' + elem.current + '</td>';
-                $('#tableWithResults').append(newRow);
+                $('#tableWithResults tr:first').after(newRow);
+                alert("end for each");
             })
+            alert("response got after for each");
         }).fail(function (err) {
             alert(err)
         });
