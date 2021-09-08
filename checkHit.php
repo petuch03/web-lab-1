@@ -26,7 +26,6 @@ function validateForm($xVal, $yVal, $rVal)
     return validateX($xVal) && validateY($yVal) && validateR($rVal);
 }
 
-
 function rectangle($xVal, $yVal, $rVal)
 {
     if (($xVal >= 0) && ($yVal <= 0) && ($xVal <= $rVal) && ($yVal >= -($rVal / 2))) {
@@ -62,8 +61,8 @@ function check($xVal, $yVal, $rVal)
 $xVal = $_POST['x'];
 $yVal = $_POST['y'];
 $rVal = $_POST['r'];
-
 $timezoneOffset = $_POST['timezone'];
+
 $res = array();
 
 $isValid = validateForm($xVal, $yVal, $rVal);

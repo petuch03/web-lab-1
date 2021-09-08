@@ -181,7 +181,3 @@ td {
     padding: 9px 8px;
     transition: .3s linear;
 }
-
-tr:hover td {
-    color: #6feeca;
-}

@@ -1,9 +1,5 @@
 let X, Y, R;
 
-function isNumeric(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
 function validateX() {
     let xButtons = document.getElementsByName('xVal');
     let xcounter = 0;
@@ -13,10 +9,10 @@ function validateX() {
             xcounter++;
     })
     if (xcounter > 1) {
-        alert("Выберите 1 значение X");
+        alert("Choose only 1 X option");
         return false;
     }
-    X = 0;
+    X = document.querySelector('input[name="xVal"]:checked').value;
     return true;
 }
 
@@ -28,26 +24,26 @@ function validateR() {
             ycounter++;
     })
     if (ycounter > 1) {
-        alert("Выберите 1 значение R");
+        alert("Choose only one R option");
         return false;
     }
-    R = 0;
+    R = document.querySelector('input[name="rVal"]:checked').value;
     return true;
 }
 
 function validateY() {
     let r = document.getElementById("yValue");
     if (r.value.trim() === "") {
-        alert("Поле Y должно быть заполнено");
+        alert("Y must not be null");
         return false;
     }
     r.value = r.value.replace(',', '.');
     if (!(r.value && !isNaN(r.value))) {
-        alert("Y должен быть числом!");
+        alert("Y must be a number");
         return false;
     }
     if (r.value < -5 || r.value > 5) {
-        alert("Y должен принадлежать промежутку: (-5; 5)!");
+        alert("Y must be in (-5; 5)");
         return false;
     }
     Y = r.value.replace(",", ".");
@@ -59,7 +55,10 @@ function validateForm() {
 }
 
 function cal() {
-    if (!validateForm()) alert('cringe');
+    if (!validateForm()) {
+        alert('cringe');
+        return;
+    }
     if (validateForm()) {
         $.post("checkHit.php", {
             'x': X,
@@ -67,10 +66,9 @@ function cal() {
             'r': R,
             'timezone': new Date().getTimezoneOffset()
         }).done(function (data) {
-            alert("bbwriuhgiheiufh")
             let arr = JSON.parse(data);
             arr.forEach( function (elem) {
-                if (!elem.validate()) return;
+                if (!elem.validate) return;
                 newRow = '<tr>';
                 newRow += '<td>' + elem.x + '</td>';
                 newRow += '<td>' + elem.y + '</td>';
@@ -82,7 +80,6 @@ function cal() {
             })
         }).fail(function (err) {
             alert(err)
-            alert("dd")
         });
     }
 }
