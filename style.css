@@ -152,14 +152,11 @@ header {
     border-radius: 10px;
 }
 
-#scroll {
-    height: 180px;
-    overflow: visible;
-}
-
 #tLocator {
     padding: 0;
     margin: 11px;
+    height: 180px;
+    overflow: visible;
 }
 
 table {
