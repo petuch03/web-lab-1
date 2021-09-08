@@ -1,5 +1,9 @@
 let X, Y, R;
 
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 function validateX() {
     let xButtons = document.getElementsByName('xVal');
     let xcounter = 0;
@@ -9,41 +13,41 @@ function validateX() {
             xcounter++;
     })
     if (xcounter > 1) {
-        alert("Choose only 1 X option");
+        alert("Выберите 1 значение X");
         return false;
     }
-    X = document.querySelector('input[name="xVal"]:checked').value;
+    X = 0;
     return true;
 }
 
 function validateR() {
     let yButtons = document.getElementsByName('rVal');
-    let ycounter = 0;
+    let yCounter = 0;
     yButtons.forEach(checkBox => {
         if (checkBox.checked)
-            ycounter++;
+            yCounter++;
     })
-    if (ycounter > 1) {
-        alert("Choose only one R option");
+    if (yCounter > 1) {
+        alert("Выберите 1 значение R");
         return false;
     }
-    R = document.querySelector('input[name="rVal"]:checked').value;
+    R = 0;
     return true;
 }
 
 function validateY() {
     let r = document.getElementById("yValue");
     if (r.value.trim() === "") {
-        alert("Y must not be null");
+        alert("Поле Y должно быть заполнено");
         return false;
     }
     r.value = r.value.replace(',', '.');
     if (!(r.value && !isNaN(r.value))) {
-        alert("Y must be a number");
+        alert("Y должен быть числом!");
         return false;
     }
     if (r.value < -5 || r.value > 5) {
-        alert("Y must be in (-5; 5)");
+        alert("Y должен принадлежать промежутку: (-5; 5)!");
         return false;
     }
     Y = r.value.replace(",", ".");
@@ -55,10 +59,7 @@ function validateForm() {
 }
 
 function cal() {
-    if (!validateForm()) {
-        alert('cringe');
-        return;
-    }
+    if (!validateForm()) alert('cringe');
     if (validateForm()) {
         $.post("checkHit.php", {
             'x': X,
@@ -66,10 +67,11 @@ function cal() {
             'r': R,
             'timezone': new Date().getTimezoneOffset()
         }).done(function (data) {
+            alert("bbwriuhgiheiufh")
             let arr = JSON.parse(data);
             arr.forEach( function (elem) {
-                if (!elem.validate) return;
-                newRow = '<tr>';
+                if (!elem.validate()) return;
+                let newRow = '<tr>';
                 newRow += '<td>' + elem.x + '</td>';
                 newRow += '<td>' + elem.y + '</td>';
                 newRow += '<td>' + elem.r + '</td>';
@@ -80,6 +82,7 @@ function cal() {
             })
         }).fail(function (err) {
             alert(err)
+            alert("dd")
         });
     }
 }
