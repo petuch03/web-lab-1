@@ -2,14 +2,18 @@ let X, Y, R;
 
 function validateX() {
     let xButtons = document.getElementsByName('xVal');
-    let xcounter = 0;
+    let xCounter = 0;
 
     xButtons.forEach(checkBox => {
         if (checkBox.checked)
-            xcounter++;
+            xCounter++;
     })
-    if (xcounter > 1) {
+    if (xCounter > 1) {
         alert("Choose only 1 X option");
+        return false;
+    }
+    if (xCounter === 0) {
+        alert("Choose any X option");
         return false;
     }
     X = document.querySelector('input[name="xVal"]:checked').value;
@@ -25,6 +29,10 @@ function validateR() {
     })
     if (yCounter > 1) {
         alert("Choose only 1 R option");
+        return false;
+    }
+    if (yCounter === 0) {
+        alert("Choose any R option");
         return false;
     }
     R = document.querySelector('input[name="rVal"]:checked').value;
