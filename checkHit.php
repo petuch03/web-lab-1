@@ -2,12 +2,12 @@
 
 require_once("arr_to_json.php");
 
-function validateX($xVal)
+function validateX($xVal): bool
 {
     return isset($xVal);
 }
 
-function validateY($yVal)
+function validateY($yVal): bool
 {
     if (!isset($yVal))
         return false;
@@ -16,17 +16,17 @@ function validateY($yVal)
     return is_numeric($numY) && $numY > -5 && $numY < 5;
 }
 
-function validateR($rVal)
+function validateR($rVal): bool
 {
     return isset($rVal);
 }
 
-function validateForm($xVal, $yVal, $rVal)
+function validateForm($xVal, $yVal, $rVal): bool
 {
     return validateX($xVal) && validateY($yVal) && validateR($rVal);
 }
 
-function rectangle($xVal, $yVal, $rVal)
+function rectangle($xVal, $yVal, $rVal): bool
 {
     if (($xVal >= 0) && ($yVal <= 0) && ($xVal <= $rVal) && ($yVal >= -($rVal / 2))) {
         return true;
@@ -34,7 +34,7 @@ function rectangle($xVal, $yVal, $rVal)
     return false;
 }
 
-function circle($xVal, $yVal, $rVal)
+function circle($xVal, $yVal, $rVal): bool
 {
     if ((0 <= $xVal) && ($yVal <= 0) && (pow($xVal, 2) + pow($yVal, 2) <= pow($rVal, 2))) {
         return true;
@@ -42,7 +42,7 @@ function circle($xVal, $yVal, $rVal)
     return false;
 }
 
-function triangle($xVal, $yVal, $rVal)
+function triangle($xVal, $yVal, $rVal): bool
 {
     if (($xVal <= 0) && ($yVal >= 0) && ($yVal <= ($xVal + ($rVal / 2))) && ($xVal >= ($yVal - ($rVal / 2)))) {
         return true;
@@ -50,7 +50,7 @@ function triangle($xVal, $yVal, $rVal)
     return false;
 }
 
-function check($xVal, $yVal, $rVal)
+function check($xVal, $yVal, $rVal): bool
 {
     if (rectangle($xVal, $yVal, $rVal) || circle($xVal, $yVal, $rVal) || triangle($xVal, $yVal, $rVal)) {
         return true;
