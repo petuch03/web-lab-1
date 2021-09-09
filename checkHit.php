@@ -2,8 +2,7 @@
 
 require_once("arr_to_json.php");
 
-function validateX($xValue)
-{
+function validateX($xValue) {
     return isset($xValue);
 }
 
@@ -19,37 +18,32 @@ function validateR($rValue) {
     return isset($rValue);
 }
 
-function validateData($xValue, $yValue, $rValue)
-{
+function validateData($xValue, $yValue, $rValue) {
     return validateX($xValue) && validateY($yValue) && validateR($rValue);
 }
 
-function rectangle($xValue, $yValue, $rValue)
-{
+function rectangle($xValue, $yValue, $rValue) {
     if (($xValue >= 0) && ($yValue <= 0) && ($xValue <= $rValue) && ($yValue >= -($rValue / 2))) {
         return true;
     }
     return false;
 }
 
-function circle($xValue, $yValue, $rValue)
-{
+function circle($xValue, $yValue, $rValue) {
     if (($xValue <= 0) && ($yValue <= 0) && (pow($xValue, 2) + pow($yValue, 2) <= (pow($rValue, 2)/2))) {
         return true;
     }
     return false;
 }
 
-function triangle($xValue, $yValue, $rValue)
-{
+function triangle($xValue, $yValue, $rValue) {
     if (($xValue <= 0) && ($yValue >= 0) && ($yValue <= ($xValue + ($rValue / 2)))) {
         return true;
     }
     return false;
 }
 
-function check($xValue, $yValue, $rValue)
-{
+function check($xValue, $yValue, $rValue) {
     if (rectangle($xValue, $yValue, $rValue) || circle($xValue, $yValue, $rValue) || triangle($xValue, $yValue, $rValue)) {
         return true;
     }
@@ -60,12 +54,9 @@ $xValue = $_POST['x'];
 $yValue = $_POST['y'];
 $rValue = $_POST['r'];
 $timezone = $_POST['timezone'];
-
 $res = array();
-
 $isValid = validateData($xValue, $yValue, $rValue);
 $isHit = check($xValue, $yValue, $rValue);
-
 $currentTime = date('H:i:s', time() - $timezone * 60);
 $executionTime = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 7);
 
