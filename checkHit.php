@@ -2,80 +2,78 @@
 
 require_once("arr_to_json.php");
 
-function validateX($xVal)
+function validateX($xValue)
 {
-    return isset($xVal);
+    return isset($xValue);
 }
 
-function validateY($yVal)
-{
-    if (!isset($yVal))
-        return false;
+function validateY($yValue) {
+    if (!isset($yValue)) return false;
 
-    $numY = str_replace(',', '.', $yVal);
-    return is_numeric($numY) && $numY > -5 && $numY < 5;
+    $Y = str_replace(',', '.', $yValue);
+
+    return $Y > -5 && $Y < 5 && is_numeric($Y);
 }
 
-function validateR($rVal)
-{
-    return isset($rVal);
+function validateR($rValue) {
+    return isset($rValue);
 }
 
-function validateForm($xVal, $yVal, $rVal)
+function validateData($xValue, $yValue, $rValue)
 {
-    return validateX($xVal) && validateY($yVal) && validateR($rVal);
+    return validateX($xValue) && validateY($yValue) && validateR($rValue);
 }
 
-function rectangle($xVal, $yVal, $rVal)
+function rectangle($xValue, $yValue, $rValue)
 {
-    if (($xVal >= 0) && ($yVal <= 0) && ($xVal <= $rVal) && ($yVal >= -($rVal / 2))) {
+    if (($xValue >= 0) && ($yValue <= 0) && ($xValue <= $rValue) && ($yValue >= -($rValue / 2))) {
         return true;
     }
     return false;
 }
 
-function circle($xVal, $yVal, $rVal)
+function circle($xValue, $yValue, $rValue)
 {
-    if (($xVal <= 0) && ($yVal <= 0) && (pow($xVal, 2) + pow($yVal, 2) <= (pow($rVal, 2)/2))) {
+    if (($xValue <= 0) && ($yValue <= 0) && (pow($xValue, 2) + pow($yValue, 2) <= (pow($rValue, 2)/2))) {
         return true;
     }
     return false;
 }
 
-function triangle($xVal, $yVal, $rVal)
+function triangle($xValue, $yValue, $rValue)
 {
-    if (($xVal <= 0) && ($yVal >= 0) && ($yVal <= ($xVal + ($rVal / 2)))) {
+    if (($xValue <= 0) && ($yValue >= 0) && ($yValue <= ($xValue + ($rValue / 2)))) {
         return true;
     }
     return false;
 }
 
-function check($xVal, $yVal, $rVal)
+function check($xValue, $yValue, $rValue)
 {
-    if (rectangle($xVal, $yVal, $rVal) || circle($xVal, $yVal, $rVal) || triangle($xVal, $yVal, $rVal)) {
+    if (rectangle($xValue, $yValue, $rValue) || circle($xValue, $yValue, $rValue) || triangle($xValue, $yValue, $rValue)) {
         return true;
     }
     return false;
 }
 
-$xVal = $_POST['x'];
-$yVal = $_POST['y'];
-$rVal = $_POST['r'];
+$xValue = $_POST['x'];
+$yValue = $_POST['y'];
+$rValue = $_POST['r'];
 $timezoneOffset = $_POST['timezone'];
 
 $res = array();
 
-$isValid = validateForm($xVal, $yVal, $rVal);
-$isHit = check($xVal, $yVal, $rVal);
+$isValid = validateData($xValue, $yValue, $rValue);
+$isHit = check($xValue, $yValue, $rValue);
 
 $currentTime = date('H:i:s', time() - $timezoneOffset * 60);
 $executionTime = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 7);
 
 array_push($res, array(
     "validate" => $isValid,
-    "x" => $xVal,
-    "y" => $yVal,
-    "r" => $rVal,
+    "x" => $xValue,
+    "y" => $yValue,
+    "r" => $rValue,
     "isHit" => $isHit,
     "duration" => $executionTime,
     "current" => $currentTime
