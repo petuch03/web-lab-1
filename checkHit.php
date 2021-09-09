@@ -59,14 +59,14 @@ function check($xValue, $yValue, $rValue)
 $xValue = $_POST['x'];
 $yValue = $_POST['y'];
 $rValue = $_POST['r'];
-$timezoneOffset = $_POST['timezone'];
+$timezone = $_POST['timezone'];
 
 $res = array();
 
 $isValid = validateData($xValue, $yValue, $rValue);
 $isHit = check($xValue, $yValue, $rValue);
 
-$currentTime = date('H:i:s', time() - $timezoneOffset * 60);
+$currentTime = date('H:i:s', time() - $timezone * 60);
 $executionTime = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 7);
 
 array_push($res, array(
