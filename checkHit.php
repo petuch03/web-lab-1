@@ -36,7 +36,7 @@ function rectangle($xVal, $yVal, $rVal)
 
 function circle($xVal, $yVal, $rVal)
 {
-    if ((0 <= $xVal) && ($yVal <= 0) && (pow($xVal, 2) + pow($yVal, 2) <= pow($rVal, 2))) {
+    if (($xVal <= 0) && ($yVal <= 0) && (pow($xVal, 2) + pow($yVal, 2) <= (pow($rVal, 2)/2))) {
         return true;
     }
     return false;
@@ -44,7 +44,7 @@ function circle($xVal, $yVal, $rVal)
 
 function triangle($xVal, $yVal, $rVal)
 {
-    if (($xVal <= 0) && ($yVal >= 0) && ($yVal <= ($xVal + ($rVal / 2))) && ($xVal >= ($yVal - ($rVal / 2)))) {
+    if (($xVal <= 0) && ($yVal >= 0) && ($yVal <= ($xVal + ($rVal / 2)))) {
         return true;
     }
     return false;
