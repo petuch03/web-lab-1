@@ -55,7 +55,8 @@ function validateY() {
         ALERT += "\n" + "Y must be in the following interval: (-5; 5);";
         return false;
     }
-    Y = parseFloat(y.value.replace(",", "."));
+    y.value = parseFloat(y.value);
+    Y = y.value;
     return true;
 }
 
