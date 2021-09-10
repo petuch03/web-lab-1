@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<?php
+
+session_start();
+
+if (!isset($_SESSION['requests']) || !is_array($_SESSION['requests'])) {
+    $_SESSION['requests'] = [];
+}
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,23 +32,23 @@
             <div id="area_x" class="box">
                 <p1>Choose your X value:</p1>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value="-5"> -5
-                </label>
+                    </label>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value="-4"> -4
-                </label>
+                    </label>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value='-3'> -3
-                </label>
+                    </label>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value="-2"> -2
-                </label>
+                    </label>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value="-1"> -1
-                </label>
+                    </label>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value="0"> 0
-                </label>
+                    </label>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value="1"> 1
-                </label>
+                    </label>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value="2"> 2
-                </label>
+                    </label>
                 <p><label><input class="xValue" name="xVal" type="checkbox" value="3"> 3
-                </label>
+                    </label>
             </div>
         </div>
 
@@ -83,12 +93,16 @@
                 <th>duration</th>
                 <th>now</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <?php foreach ($_SESSION["requests"] as $request) {?>
+                <tr>
+                    <td><?= $request["x"] ?></td>
+                    <td><?= $request["y"] ?></td>
+                    <td><?= $request["r"] ?></td>
+                    <td><?php echo $request["isHit"] == true ? "yes" : "no"; ?></td>
+                    <td><?= $request["duration"] ?></td>
+                    <td><?= $request["current"] ?></td>
+                </tr>
+                <?php } ?>
         </table>
     </div>
 

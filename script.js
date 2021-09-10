@@ -77,18 +77,7 @@ function cal() {
             'r': R,
             'timezone': new Date().getTimezoneOffset()
         }).done(function (data) {
-            let arr = JSON.parse(data);
-            arr.forEach( function (elem) {
-                if (!elem.validate) { return; }
-                let newRow = '<tr>';
-                newRow += '<td>' + elem.x + '</td>';
-                newRow += '<td>' + elem.y + '</td>';
-                newRow += '<td>' + elem.r + '</td>';
-                newRow += '<td>' + (elem.isHit ? "yes" : "no") + '</td>';
-                newRow += '<td>' + elem.duration.toFixed(7) + '</td>';
-                newRow += '<td>' + elem.current + '</td>';
-                $('#tableWithResults tr:first').after(newRow);
-            })
+            $('#tableWithResults tr:first').after(data);
         }).fail(function (err) {
             alert(err)
         });
